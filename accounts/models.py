@@ -5,7 +5,7 @@ from . managers import UserManager
 
 
 
-class user(AbstractBaseUser):
+class User(AbstractBaseUser):
     email = models.EmailField(max_length=255,unique=True)
     phone_number = models.CharField(max_length=11,unique=True)
     full_name = models.CharField()
@@ -27,5 +27,5 @@ class user(AbstractBaseUser):
         return True
 
     @property
-    def is_active(self):
+    def is_staff(self):
         return self.is_admin
