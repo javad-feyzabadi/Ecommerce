@@ -4,7 +4,6 @@ from django.contrib.auth.models import AbstractBaseUser
 from . managers import UserManager
 
 
-
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255,unique=True)
     phone_number = models.CharField(max_length=11,unique=True)
