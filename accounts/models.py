@@ -19,9 +19,11 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.email
 
+    #permission
     def has_perm(self, perm, obj=None):
         return True
 
+    # user permission to module
     def has_module_perms(self, app_lable):
         return True
 

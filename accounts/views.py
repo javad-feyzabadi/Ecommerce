@@ -6,7 +6,7 @@ from django.contrib import messages
 
 from utils import send_otp_code
 
-from . forms import UserRegistrationForm,ValidationError
+from . forms import UserRegistrationForm,VerifyCodeForm
 from . models import OtpCode
 
 class UserRegistrations(View):
@@ -36,7 +36,7 @@ class UserRegistrations(View):
 
 
 class UserRegisterVerifyCodeView(View):
-    form_class = ValidationError
+    form_class = VerifyCodeForm
     def get(self,request):
         pass
     

@@ -13,7 +13,6 @@ class OtpCodeAdmin(admin.ModelAdmin):
 
 
 
-
 class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
@@ -23,7 +22,6 @@ class UserAdmin(BaseUserAdmin):
     fieldsets = (
         ('Main',{'fields':('email','phone_number','full_name','password')}),
         ('Permission',{'fields':('is_active','is_admin','last_login')}),
-
     )
     add_fieldsets = (
         (None,{'fields':('phone_number','email','full_name','password1','password2')}),
