@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig', 
     'home.apps.HomeConfig', 
+    'storages',
 
 ]
 
@@ -136,3 +137,20 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+
+
+# Amazon s3
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID ='lp55tcr0l0qic9gm'
+AWS_SECRET_ACCESS_KEY ='3c84feaf-66b4-4414-8a54-14cc4697a427'
+AWS_S3_ENDPOINT_URL = 'https://storage.iran.liara.space'
+AWS_STORAGE_BUCKET_NAME = 'fervent-cartwright-ay252bum'
+AWS_SERVICE_NAME = 's3'
+AWS_S3_FILE_OVERWRITE = False
+
+# AWS_S3_OBJECT_PARAMETERS = {
+#   'CacheControl': 'max-age=86400',
+# }
+# AWS_LOCATION = 'static'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
