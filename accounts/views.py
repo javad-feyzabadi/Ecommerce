@@ -35,7 +35,6 @@ class UserRegistrations(View):
         return render(request,self.template_name,{'form':form})
 
 
-
 class UserRegisterVerifyCodeView(View):
     form_class = VerifyCodeForm
 
@@ -63,7 +62,3 @@ class UserRegisterVerifyCodeView(View):
                 messages.error(request,'This Code Is Wrong','danger')
                 return redirect('accounts:verify_code')
         return redirect('home:home')
-
-
-
-
