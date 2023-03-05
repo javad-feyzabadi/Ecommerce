@@ -20,7 +20,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200,unique=True)
     description = models.TextField()
-    image = models.ImageField(upload_to='products/%Y/%m/%d/')
+    image = models.ImageField()
     price = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

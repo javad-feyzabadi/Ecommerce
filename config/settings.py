@@ -148,6 +148,7 @@ AWS_S3_ENDPOINT_URL = 'https://storage.iran.liara.space'
 AWS_STORAGE_BUCKET_NAME = 'fervent-cartwright-ay252bum'
 AWS_SERVICE_NAME = 's3'
 AWS_S3_FILE_OVERWRITE = False
+AWS_LOCAL_STORAGE = f'{BASE_DIR}/aws/'
 
 # AWS_S3_OBJECT_PARAMETERS = {
 #   'CacheControl': 'max-age=86400',
