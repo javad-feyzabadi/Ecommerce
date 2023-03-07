@@ -6,6 +6,10 @@
 {% endblock%}
 
 {% block content %}
+    {% for category in categories %}
+        <a class="btn btn-info" href="{{category.get_absolute_url}}">{{ category.name }}</a>
+    {% endfor %}
+    <br><br>
     {% for product in products %}
         <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">

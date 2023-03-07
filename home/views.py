@@ -2,15 +2,20 @@ from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib import messages
 from django.views import View
 
-from . models import Product
+from . models import Product,Category
 from . tasks import all_bucket_objects_task,delete_object_task,download_object_task
 
 from utils import IsAdminUserMixin
 
+
 class HomeView(View):
-    def get(self,request):
+    def get(self,request,category_slug=None):
         products = Product.objects.filter(avilable = True)
-        return render(request,'home/home.html',{'products':products})
+        categories = Category.objects.all()
+        if category_slug:
+             category = Category.objects.get(slug = category_slug)
+             products = products.filter(category = category)
+        return render(request,'home/home.html',{'products':products,'categories':categories})
 
 
 class ProductDetailView(View):
