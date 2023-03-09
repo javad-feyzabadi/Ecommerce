@@ -7,7 +7,7 @@
     <img src="{{product.image.url}}" alt="">
     <p>{{product.descriptions}}</p>
     <br><br>
-    <form action="" method="pos">
+    <form action="{% url 'orders:cart_add' product.id %}" method="pos">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Add To Card">
