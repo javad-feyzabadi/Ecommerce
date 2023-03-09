@@ -31,5 +31,5 @@ class Cart:
         self.save()
 
 
-    def sace(self):
+    def save(self):
         self.session.modified = True
