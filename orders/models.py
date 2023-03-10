@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+# from accounts.models import User
+
 from home.models import Product
+
 
 class Order(models.Model):
     user = models.ForeignKey(get_user_model(),on_delete=models.CASCADE,related_name='orders')
