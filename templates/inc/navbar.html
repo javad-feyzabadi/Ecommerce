@@ -9,10 +9,10 @@
           <a class="nav-link active" href="{% url 'accounts:user_register' %}">Register</a>
           <a class="nav-link active" href="{% url 'accounts:user_login' %}">Login</a>
         {% endif %}
-    
         {% if request.user.is_admin %}
           <a class="nav-link active" href="{% url 'home:bucket' %}">Bucket</a>
         {% endif %}
-        </div>
+        <a href="{% url 'orders:cart' %}" class="nav-link active">CART {{cart | length}}</a>
+      </div>
     </div>
 </nav> 
