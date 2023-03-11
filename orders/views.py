@@ -8,8 +8,8 @@ from django.contrib import messages
 from home.models import Product
 
 from .cart import Cart
-from .forms import CartAddForm #CouponApplyForm
-# from .models import Order, OrderItem, Coupon
+from .forms import CartAddForm ,CouponApplyForm
+from .models import Order, OrderItem, Coupon
 
 import requests
 import json
@@ -43,22 +43,22 @@ class CartRemoveView(View):
 		return redirect('orders:cart')
 
 
-# class OrderDetailView(LoginRequiredMixin, View):
-# 	form_class = CouponApplyForm
+class OrderDetailView(LoginRequiredMixin, View):
+	# form_class = CouponApplyForm
 
-# 	def get(self, request, order_id):
-# 		order = get_object_or_404(Order, id=order_id)
-# 		return render(request, 'orders/order.html', {'order':order, 'form':self.form_class})
+	def get(self, request, order_id):
+		order = get_object_or_404(Order, id=order_id)
+		return render(request, 'orders/order.html', {'order':order, 'form':self.form_class})
 
 
-# class OrderCreateView(LoginRequiredMixin, View):
-# 	def get(self, request):
-# 		cart = Cart(request)
-# 		order = Order.objects.create(user=request.user)
-# 		for item in cart:
-# 			OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
-# 		cart.clear()
-# 		return redirect('orders:order_detail', order.id)
+class OrderCreateView(LoginRequiredMixin, View):
+	def get(self, request):
+		cart = Cart(request)
+		order = Order.objects.create(user=request.user)
+		for item in cart:
+			OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
+		cart.clear()
+		return redirect('orders:order_detail', order.id)
 
 
 # MERCHANT = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX'
