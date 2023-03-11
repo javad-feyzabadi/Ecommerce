@@ -8,8 +8,8 @@ from django.contrib import messages
 from home.models import Product
 
 from .cart import Cart
-from .forms import CartAddForm ,CouponApplyForm
-from .models import Order, OrderItem, Coupon
+from .forms import CartAddForm #CouponApplyForm
+from .models import Order, OrderItem #Coupon
 
 import requests
 import json
@@ -48,7 +48,7 @@ class OrderDetailView(LoginRequiredMixin, View):
 
 	def get(self, request, order_id):
 		order = get_object_or_404(Order, id=order_id)
-		return render(request, 'orders/order.html', {'order':order, 'form':self.form_class})
+		return render(request, 'orders/order.html', {'order':order})
 
 
 class OrderCreateView(LoginRequiredMixin, View):

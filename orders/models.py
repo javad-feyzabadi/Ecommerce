@@ -25,11 +25,11 @@ class Order(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(Order,on_delete=models.CASCADE,related_name='items')
     product  = models.ForeignKey(Product,on_delete=models.CASCADE)
-    Price = models.IntegerField()
+    price = models.IntegerField()
     quantity =  models.IntegerField(default=1)
 
     def __str__(self):
         return str(self.id)
     
     def get_cost(self):
-        return self.Price * self.quantity
+        return self.price * self.quantity
