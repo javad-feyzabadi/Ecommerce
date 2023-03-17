@@ -13,7 +13,6 @@ from . models import OtpCode,User
 
 
 
-
 class UserRegistrations(View):
     form_class = UserRegistrationForm    
     template_name = 'accounts/register.html'
